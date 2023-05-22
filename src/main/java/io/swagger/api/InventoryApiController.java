@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-21T18:18:42.188344480Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-22T13:50:47.215042163Z[GMT]")
 @RestController
 public class InventoryApiController implements InventoryApi {
 
@@ -59,7 +59,7 @@ public class InventoryApiController implements InventoryApi {
         String accept = request.getHeader("Accept");
         if (accept != null && accept.contains("application/json")) {
             try {
-                return new ResponseEntity<List<Inventario>>(objectMapper.readValue("[ {\n  \"fabrica\" : {\n    \"pagina_web\" : \"https://www.acme-corp.com\",\n    \"phone\" : \"55-15-53-09\",\n    \"nombre\" : \"ACME Corporation\"\n  },\n  \"fecha\" : \"2016-08-29T09:12:33.001Z\",\n  \"nombre_articulo\" : \"Widget Adapter\",\n  \"id_articulo\" : \"3201ABC\"\n}, {\n  \"fabrica\" : {\n    \"pagina_web\" : \"https://www.acme-corp.com\",\n    \"phone\" : \"55-15-53-09\",\n    \"nombre\" : \"ACME Corporation\"\n  },\n  \"fecha\" : \"2016-08-29T09:12:33.001Z\",\n  \"nombre_articulo\" : \"Widget Adapter\",\n  \"id_articulo\" : \"3201ABC\"\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
+                return new ResponseEntity<List<Inventario>>(objectMapper.readValue("[ {\n  \"fabrica\" : {\n    \"pagina_web\" : \"https://www.acme-corp.com\",\n    \"phone\" : \"55-15-53-09\",\n    \"nombre\" : \"ACME Corporation\"\n  },\n  \"fecha\" : \"2016-08-29T00:00:00.000+00:00\",\n  \"nombre_articulo\" : \"Widget Adapter\",\n  \"organizacion\" : \"CyC\",\n  \"id_articulo\" : \"3201ABC\"\n}, {\n  \"fabrica\" : {\n    \"pagina_web\" : \"https://www.acme-corp.com\",\n    \"phone\" : \"55-15-53-09\",\n    \"nombre\" : \"ACME Corporation\"\n  },\n  \"fecha\" : \"2016-08-29T00:00:00.000+00:00\",\n  \"nombre_articulo\" : \"Widget Adapter\",\n  \"organizacion\" : \"CyC\",\n  \"id_articulo\" : \"3201ABC\"\n} ]", List.class), HttpStatus.NOT_IMPLEMENTED);
             } catch (IOException e) {
                 log.error("Couldn't serialize response for content type application/json", e);
                 return new ResponseEntity<List<Inventario>>(HttpStatus.INTERNAL_SERVER_ERROR);

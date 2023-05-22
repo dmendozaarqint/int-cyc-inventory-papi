@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.model.Fabrica;
 import io.swagger.v3.oas.annotations.media.Schema;
-import org.threeten.bp.OffsetDateTime;
+import org.threeten.bp.LocalDate;
 import org.springframework.validation.annotation.Validated;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
@@ -14,10 +14,13 @@ import javax.validation.constraints.*;
  * Inventario
  */
 @Validated
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-21T18:18:42.188344480Z[GMT]")
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.SpringCodegen", date = "2023-05-22T13:50:47.215042163Z[GMT]")
 
 
 public class Inventario   {
+  @JsonProperty("organizacion")
+  private String organizacion = null;
+
   @JsonProperty("id_articulo")
   private String idArticulo = null;
 
@@ -25,10 +28,30 @@ public class Inventario   {
   private String nombreArticulo = null;
 
   @JsonProperty("fecha")
-  private OffsetDateTime fecha = null;
+  private LocalDate fecha = null;
 
   @JsonProperty("fabrica")
   private Fabrica fabrica = null;
+
+  public Inventario organizacion(String organizacion) {
+    this.organizacion = organizacion;
+    return this;
+  }
+
+  /**
+   * Get organizacion
+   * @return organizacion
+   **/
+  @Schema(example = "CyC", required = true, description = "")
+      @NotNull
+
+    public String getOrganizacion() {
+    return organizacion;
+  }
+
+  public void setOrganizacion(String organizacion) {
+    this.organizacion = organizacion;
+  }
 
   public Inventario idArticulo(String idArticulo) {
     this.idArticulo = idArticulo;
@@ -70,7 +93,7 @@ public class Inventario   {
     this.nombreArticulo = nombreArticulo;
   }
 
-  public Inventario fecha(OffsetDateTime fecha) {
+  public Inventario fecha(LocalDate fecha) {
     this.fecha = fecha;
     return this;
   }
@@ -79,15 +102,15 @@ public class Inventario   {
    * Get fecha
    * @return fecha
    **/
-  @Schema(example = "2016-08-29T09:12:33.001Z", required = true, description = "")
+  @Schema(example = "Mon Aug 29 00:00:00 GMT 2016", required = true, description = "")
       @NotNull
 
     @Valid
-    public OffsetDateTime getFecha() {
+    public LocalDate getFecha() {
     return fecha;
   }
 
-  public void setFecha(OffsetDateTime fecha) {
+  public void setFecha(LocalDate fecha) {
     this.fecha = fecha;
   }
 
@@ -122,7 +145,8 @@ public class Inventario   {
       return false;
     }
     Inventario inventario = (Inventario) o;
-    return Objects.equals(this.idArticulo, inventario.idArticulo) &&
+    return Objects.equals(this.organizacion, inventario.organizacion) &&
+        Objects.equals(this.idArticulo, inventario.idArticulo) &&
         Objects.equals(this.nombreArticulo, inventario.nombreArticulo) &&
         Objects.equals(this.fecha, inventario.fecha) &&
         Objects.equals(this.fabrica, inventario.fabrica);
@@ -130,7 +154,7 @@ public class Inventario   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(idArticulo, nombreArticulo, fecha, fabrica);
+    return Objects.hash(organizacion, idArticulo, nombreArticulo, fecha, fabrica);
   }
 
   @Override
@@ -138,6 +162,7 @@ public class Inventario   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Inventario {\n");
     
+    sb.append("    organizacion: ").append(toIndentedString(organizacion)).append("\n");
     sb.append("    idArticulo: ").append(toIndentedString(idArticulo)).append("\n");
     sb.append("    nombreArticulo: ").append(toIndentedString(nombreArticulo)).append("\n");
     sb.append("    fecha: ").append(toIndentedString(fecha)).append("\n");
